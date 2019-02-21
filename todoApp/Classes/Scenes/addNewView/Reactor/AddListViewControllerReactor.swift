@@ -13,7 +13,7 @@ import RxCocoa
 class AddListViewControllerReactor: Reactor {
     enum Action {
         case addNewTask(String)
-        case addNew
+        case addNewBtn
     }
     
     enum Mutation {
@@ -35,7 +35,7 @@ class AddListViewControllerReactor: Reactor {
             print(task)
             return Observable.just(Mutation.addedTask(task))
         
-        case .addNew:
+        case .addNewBtn:
             self.router?.addBtn_navigate()
             return Observable.empty()
         }

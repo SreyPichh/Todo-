@@ -61,13 +61,12 @@ extension AddListController {
 extension AddListController: StoryboardView {
     func bind(reactor: AddListViewControllerReactor) {
         self.subview.addNew.rx.text
-            .filter { ($0?.count)! > 0 }
             .map { Reactor.Action.addNewTask($0!) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         self.subview.addBtn.rx.tap
-            .map{ Reactor.Action.addNew }
+            .map{ Reactor.Action.addNewBtn }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
     }
