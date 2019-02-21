@@ -41,7 +41,7 @@ extension ViewController {
             let realm = try! Realm()
             let result = realm.object(ofType: Task.self, forPrimaryKey: AddListController.id)
             guard let task = result?.task else {
-                return "else-----------------else"
+                return ""
             }
             tasks = task
         }

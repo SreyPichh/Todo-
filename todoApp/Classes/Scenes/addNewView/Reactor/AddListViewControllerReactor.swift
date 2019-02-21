@@ -17,12 +17,13 @@ class AddListViewControllerReactor: Reactor {
     }
     
     enum Mutation {
-        case addedTask
+        case addedTask(String)
     }
     var initialState: AddListViewControllerReactor.State
     struct State {
         var task: String
     }
+    var router: AddListRoute?
     init() {
         initialState = State(task: "")
     }
@@ -31,10 +32,13 @@ class AddListViewControllerReactor: Reactor {
     func mutate(action: AddListViewControllerReactor.Action) -> Observable<AddListViewControllerReactor.Mutation> {
         switch action {
         case .addNewTask(let task):
-            let msg: String = ""
-            if
+            print(task)
+            return Observable.just(Mutation.addedTask(task))
+        
+        case .addNew:
+            self.router?.addBtn_navigate()
+            return Observable.empty()
         }
-        return Observable.empty()
     }
     func reduce(state: AddListViewControllerReactor.State, mutation: AddListViewControllerReactor.Mutation) -> AddListViewControllerReactor.State {
         return state
