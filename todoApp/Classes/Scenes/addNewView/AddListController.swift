@@ -33,7 +33,6 @@ extension AddListController {
         self.view.addSubview(self.subview.todoText)
         self.view.addSubview(self.subview.addNew)
         self.view.addSubview(self.subview.addBtn)
-        
 //        self.reactor = AddListViewControllerReactor(router: self.router!)
         
         self.subview.addBtn.addTarget(self, action: #selector(handle_addBtnClicked), for: .touchUpInside)
@@ -48,7 +47,7 @@ extension AddListController {
 extension AddListController {
     @objc func handle_addBtnClicked(){
         AddListController.id = AddListController.id + 1
-        print("add btn clickkkkkkkk")
+        print("add btn click")
         presentor?.storeRequest(task: subview.addNew.text!, id: AddListController.id)
         
     }
