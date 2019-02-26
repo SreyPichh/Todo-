@@ -8,11 +8,21 @@
 
 import UIKit
 import RealmSwift
+import RxCocoa
+import ReactorKit
+import RxSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, View {
+    typealias Reactor = ViewControllerReactor
+    
+    var disposeBag: DisposeBag = DisposeBag()
+    
+    var viewControllerDelegate: ViewControllerProtocol?
+    
     var subview: ViewControllerSubview = ViewControllerSubview()
 //    var addNewList: AddListController
-    
+
+    private var router: ViewControllerRouter?
 }
 
 extension ViewController {
@@ -25,6 +35,9 @@ extension ViewController {
         self.view.addSubview(self.subview.plusBtn)
         self.view.addSubview(self.subview.list)
         self.subview.plusBtn.addTarget(self, action: #selector(plusBtnClicked), for: .touchUpInside)
+        
+        self.router = ViewControllerRouter(viewController: self)
+        self.reactor = ViewControllerReactor(router: self.router!, viewController: self)
     }
     override func viewDidLayoutSubviews() {
         self.subview.updateConstraints()
@@ -46,6 +59,14 @@ extension ViewController {
             tasks = task
         }
         return tasks!
+    }
+}
+extension ViewController: StoryboardView {
+    func bind(reactor: ViewControllerReactor) {
+        self.reactor?.state
+            .map {$0.tasks}
+            .bind(to: self.subview.list.rx.items(cellIdentifier: "cell")) { row, element, cell in cell.textLabel?.text = element.task }
+            .disposed(by: self.disposeBag)
     }
 }
 
