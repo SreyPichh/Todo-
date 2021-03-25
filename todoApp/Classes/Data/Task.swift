@@ -9,6 +9,5 @@
 import RealmSwift
 final class Task: Object {
     @objc dynamic var task: String = ""
-    
 }
 

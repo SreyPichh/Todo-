@@ -10,6 +10,7 @@
 		0DC10A06542849772C0F46C2 /* Pods_todoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A1CC8CDA8C5A437D8468F1 /* Pods_todoApp.framework */; };
 		52027BC5221CF74100799B2F /* AddListViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52027BC4221CF74100799B2F /* AddListViewControllerReactor.swift */; };
 		52027BC8221D359B00799B2F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52027BC7221D359B00799B2F /* Task.swift */; };
+		5208139C22257C3C00963065 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208139B22257C3C00963065 /* TaskModel.swift */; };
 		5210BF4D221E5AF80017517C /* Presentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210BF4C221E5AF80017517C /* Presentor.swift */; };
 		5268434E221A771E007CB91D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268434D221A771E007CB91D /* AppDelegate.swift */; };
 		52684350221A771E007CB91D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268434F221A771E007CB91D /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 		526EF3E3221C0C3F000A5EEE /* AddListControllerSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EF3E2221C0C3F000A5EEE /* AddListControllerSubview.swift */; };
 		526EF3E6221C1086000A5EEE /* ViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EF3E5221C1086000A5EEE /* ViewControllerRouter.swift */; };
 		52986EB8221AA26500E8ED48 /* ViewControllerSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52986EB7221AA26500E8ED48 /* ViewControllerSubview.swift */; };
+		529B03F82220E59200213A56 /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B03F72220E59200213A56 /* ViewControllerProtocol.swift */; };
 		52EAB985221D54A600C84030 /* AddListRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAB984221D54A600C84030 /* AddListRoute.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,7 @@
 		364D4B6707146ED8FC83464C /* Pods-todoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoApp.release.xcconfig"; path = "Target Support Files/Pods-todoApp/Pods-todoApp.release.xcconfig"; sourceTree = "<group>"; };
 		52027BC4221CF74100799B2F /* AddListViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewControllerReactor.swift; sourceTree = "<group>"; };
 		52027BC7221D359B00799B2F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		5208139B22257C3C00963065 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		5210BF4C221E5AF80017517C /* Presentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentor.swift; sourceTree = "<group>"; };
 		5268434A221A771E007CB91D /* todoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5268434D221A771E007CB91D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		526EF3E2221C0C3F000A5EEE /* AddListControllerSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListControllerSubview.swift; sourceTree = "<group>"; };
 		526EF3E5221C1086000A5EEE /* ViewControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRouter.swift; sourceTree = "<group>"; };
 		52986EB7221AA26500E8ED48 /* ViewControllerSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSubview.swift; sourceTree = "<group>"; };
+		529B03F72220E59200213A56 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		52EAB984221D54A600C84030 /* AddListRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListRoute.swift; sourceTree = "<group>"; };
 		B2A1CC8CDA8C5A437D8468F1 /* Pods_todoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -78,9 +82,18 @@
 		52027BC6221D352500799B2F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5208139A22257C2700963065 /* Model */,
 				52027BC7221D359B00799B2F /* Task.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		5208139A22257C2700963065 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5208139B22257C3C00963065 /* TaskModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		52684341221A771E007CB91D = {
@@ -155,7 +168,6 @@
 			children = (
 				52027BC6221D352500799B2F /* Data */,
 				52986EB4221AA20300E8ED48 /* Scenes */,
-				5268434F221A771E007CB91D /* ViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -172,6 +184,8 @@
 		52986EB5221AA21900E8ED48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				529B03F62220E57A00213A56 /* Protocol */,
+				5268434F221A771E007CB91D /* ViewController.swift */,
 				526EF3E4221C1076000A5EEE /* Router */,
 				526EF3DB221BF598000A5EEE /* Reactor */,
 				52986EB6221AA22500E8ED48 /* subview */,
@@ -193,6 +207,14 @@
 				52684354221A771F007CB91D /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		529B03F62220E57A00213A56 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				529B03F72220E59200213A56 /* ViewControllerProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		52EAB983221D547800C84030 /* Router */ = {
@@ -345,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529B03F82220E59200213A56 /* ViewControllerProtocol.swift in Sources */,
 				52684350221A771E007CB91D /* ViewController.swift in Sources */,
 				526EF3E0221C0B11000A5EEE /* AddListController.swift in Sources */,
 				526EF3DD221BF5CA000A5EEE /* ViewControllerReactor.swift in Sources */,
@@ -354,6 +377,7 @@
 				5210BF4D221E5AF80017517C /* Presentor.swift in Sources */,
 				526EF3E6221C1086000A5EEE /* ViewControllerRouter.swift in Sources */,
 				52027BC8221D359B00799B2F /* Task.swift in Sources */,
+				5208139C22257C3C00963065 /* TaskModel.swift in Sources */,
 				526EF3E3221C0C3F000A5EEE /* AddListControllerSubview.swift in Sources */,
 				52EAB985221D54A600C84030 /* AddListRoute.swift in Sources */,
 			);

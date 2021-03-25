@@ -16,19 +16,19 @@ class ViewControllerReactor: Reactor {
     }
     
     enum Mutation {
-        
+        case setData([TaskModel])
     }
-    var initialState: ViewControllerReactor.State
-    
     struct State {
-        
+        var tasks: [TaskModel]
     }
-    var router: ViewControllerRouter
+    private var router: ViewControllerRouter
+    private var viewController: ViewController
     
+    var initialState: ViewControllerReactor.State = State(tasks: [TaskModel(task: "Hello")])
     
-    init(router: ViewControllerRouter) {
+    init(router: ViewControllerRouter, viewController: ViewController) {
         self.router = router
-        initialState = State()
+        self.viewController = viewController
     }
     
     func mutate(action: ViewControllerReactor.Action) -> Observable<ViewControllerReactor.Mutation> {
@@ -39,9 +39,12 @@ class ViewControllerReactor: Reactor {
         }
     }
     func reduce(state: ViewControllerReactor.State, mutation: ViewControllerReactor.Mutation) -> ViewControllerReactor.State {
+        var newState = state
         switch mutation {
-            
+            case .setData(let tasks):
+                newState.tasks = tasks
         }
+        return newState
     }
     
 }
